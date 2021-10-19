@@ -1,8 +1,11 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 /**
  * Allows for more complex operations to be performed on emails specific to the Southampton system
@@ -23,12 +26,28 @@ class Email {
         SEARCH
     }
 
+    public String readCookies (String filename) {
+        String cookies = "";
+        try {
+            File myObj = new File(filename);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                cookies = myReader.nextLine();
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return cookies;
+    }
+
     /**
      * Constructs an HTTP request to the ECS servers with the correct cookies to get the relevant information
      */
     public HttpResponse<String> fetchData(fetchDataFrom type, String input) throws IOException, InterruptedException{
 
-        String cookies = "";
+        String cookies = readCookies("./one/src/Cookies.txt");
 
         switch (type) {
             case PUBLIC -> {
