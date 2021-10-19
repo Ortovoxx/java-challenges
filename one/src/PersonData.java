@@ -60,15 +60,11 @@ class PersonData {
         doc.select("#page > article > div > h1");
     }
 
-    public String toString(){
-        return "Test" + name;
-    }
-
     /**
      * Stores any data encapsulated in this object to a JSON file
      */
     public void storeToJSON(PersonData person){
         System.out.println("Storing details about '" + name + "' to JSON file");
-        System.out.print(person);
+        // Not currently working... Whoops!
     }
 }
