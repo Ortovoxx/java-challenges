@@ -1,6 +1,9 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+/**
+ * Class which represents a person on the ECS intranet
+ */
 class PersonData {
     String name;
     String email;
@@ -8,12 +11,9 @@ class PersonData {
     Integer ECSMemberId;
     Boolean visible;
 
-
     PersonData(String html) {
         parseAuthHTML(html);
     }
-
-
 
     /**
      * Parses HTML from authenticated sources
@@ -49,9 +49,7 @@ class PersonData {
     public void parsePublicHtml(String html) {
         Document doc = Jsoup.parse(html);
 
-        System.out.println(doc.select("#page > article > div > h1"));
-
-        doc.select("#page > article > div > h1");
+        doc.select("#page > article > div > h1"); // Selects their name - Currently duplicate
     }
 
     /**

@@ -26,6 +26,9 @@ class Email {
         SEARCH
     }
 
+    /**
+     * Reads cookies from a file
+     */
     public String readCookies (String filename) {
         String cookies = "";
         try {
