@@ -41,12 +41,6 @@ class PersonData {
         String positionBlob = doc.select("#content > div.pageContentBars1 > div:nth-child(4)").text();
 
         position = positionBlob.split(":")[1].replaceAll("Email", "").substring(1);
-
-        System.out.println(email);
-        System.out.println(name);
-        System.out.println(ECSMemberId);
-        System.out.println(visible);
-        System.out.println(position);
     }
 
     /**
@@ -65,6 +59,14 @@ class PersonData {
      */
     public void storeToJSON(PersonData person){
         System.out.println("Storing details about '" + name + "' to JSON file");
+        System.out.printf(
+                "Name: %s Position: %s Email: %s ECSMemberId: %d Visible: %b\n",
+                name,
+                position,
+                email,
+                ECSMemberId,
+                visible
+        );
         // Not currently working... Whoops!
     }
 }
