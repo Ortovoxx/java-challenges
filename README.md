@@ -43,3 +43,12 @@ the state of all the variables
 Add the `-p` or `--print`flag to print out the final value of all the variables
 once the program has finished running
 
+### 3 - Extending the barebones interpreter
+
+Additional functionality added to the barebones interpreter written in challenge 2
+
+This new interpreter contains all the same functionality as last time but now
+also supports:
+- Comments
+
+
